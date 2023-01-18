@@ -1,0 +1,9 @@
+springdoc:
+  swagger-ui:
+    csrf:
+      enabled: true
+    path: /swagger-ui.html
+  show-actuator: false
+
+server:
+  port: 8081

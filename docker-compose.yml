@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+
+  spring-docker3:
+    image: youtubeserviceimage
+    container_name: youtubeservice
+    ports:
+      - 8081:8081
+    build:
+      context: ./
