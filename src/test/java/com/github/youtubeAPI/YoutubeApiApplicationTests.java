@@ -1,4 +1,4 @@
-package ru.astondevs.youtubeAPI;
+package com.github.youtubeAPI;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

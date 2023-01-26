@@ -1,4 +1,4 @@
-package ru.astondevs.youtubeAPI.model;
+package com.github.youtubeAPI.model;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Getter;

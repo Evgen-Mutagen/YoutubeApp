@@ -1,5 +1,6 @@
-package ru.astondevs.youtubeAPI.controller;
+package com.github.youtubeAPI.controller;
 
+import com.github.youtubeAPI.service.imp.YouTubeSearchService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
@@ -7,11 +8,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-import ru.astondevs.youtubeAPI.model.YouTubeDetailModel;
-import ru.astondevs.youtubeAPI.model.YouTubePageModel;
-import ru.astondevs.youtubeAPI.model.YouTubeResultMainPage;
-import ru.astondevs.youtubeAPI.model.YouTubeSearchModel;
-import ru.astondevs.youtubeAPI.service.imp.YouTubeSearchService;
+import com.github.youtubeAPI.model.YouTubeDetailModel;
+import com.github.youtubeAPI.model.YouTubePageModel;
+import com.github.youtubeAPI.model.YouTubeResultMainPage;
+import com.github.youtubeAPI.model.YouTubeSearchModel;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package ru.astondevs.youtubeAPI.controller;
+package com.github.youtubeAPI.controller;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.http.MediaType;

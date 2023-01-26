@@ -1,4 +1,4 @@
-package ru.astondevs.youtubeAPI.token;
+package com.github.youtubeAPI.token;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTVerifier;

@@ -1,10 +1,10 @@
-package ru.astondevs.youtubeAPI.filter;
+package com.github.youtubeAPI.filter;
 
+import com.github.youtubeAPI.token.TokenService;
 import com.google.common.net.HttpHeaders;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.filter.OncePerRequestFilter;
-import ru.astondevs.youtubeAPI.token.TokenService;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 public class AuthorizationFilter extends OncePerRequestFilter {
+
     @Autowired
     private TokenService tokenService;
     @Value("${auth.enabled}")

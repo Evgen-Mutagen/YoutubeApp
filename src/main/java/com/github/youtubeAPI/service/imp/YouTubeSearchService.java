@@ -1,5 +1,7 @@
-package ru.astondevs.youtubeAPI.service.imp;
+package com.github.youtubeAPI.service.imp;
 
+import com.github.youtubeAPI.model.*;
+import com.github.youtubeAPI.service.SearchService;
 import com.google.api.client.googleapis.json.GoogleJsonResponseException;
 import com.google.api.client.util.DateTime;
 import com.google.api.services.youtube.YouTube;
@@ -7,7 +9,6 @@ import com.google.api.services.youtube.model.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
-import ru.astondevs.youtubeAPI.model.*;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -16,7 +17,7 @@ import java.util.Date;
 import java.util.List;
 
 @Service
-public class YouTubeSearchService extends AbstractYouTube {
+public class YouTubeSearchService extends AbstractYouTube implements SearchService {
     private static final Logger log = LoggerFactory.getLogger(YouTubeSearchService.class);
     private static final String searchFieldBySearch = "items(id/kind,id/videoId,snippet/title,snippet/description,snippet/publishedAt,snippet/thumbnails/high/url,snippet/channelId )";
     private static final List<String> part = Collections.singletonList("id,snippet");
@@ -25,7 +26,7 @@ public class YouTubeSearchService extends AbstractYouTube {
     private static final String searchFieldByVideo = "items(kind,id,snippet/title,snippet/description,snippet/publishedAt," +
             "snippet/thumbnails/maxres/url,snippet/channelId,snippet/categoryId,contentDetails/duration,statistics/viewCount,statistics/likeCount)";
 
-
+    @Override
     public List<YouTubeSearchModel> fetchVideosByQuery(String queryTerm, Long maxSearch) {
         List<YouTubeSearchModel> videos = new ArrayList<>();
         try {
@@ -67,6 +68,7 @@ public class YouTubeSearchService extends AbstractYouTube {
         return videos;
     }
 
+    @Override
     public List<YouTubePageModel> fetchVideosByCategoryId(String categoryId, Long maxResult) {
         YouTubePageModel categoryVideo = new YouTubePageModel();
         try {
@@ -118,6 +120,7 @@ public class YouTubeSearchService extends AbstractYouTube {
         return Collections.singletonList(categoryVideo);
     }
 
+    @Override
     public YouTubeDetailModel fetchVideoById(String videoId) {
         YouTubeDetailModel videoById = new YouTubeDetailModel();
         try {
@@ -158,6 +161,7 @@ public class YouTubeSearchService extends AbstractYouTube {
         return videoById;
     }
 
+    @Override
     public List<YouTubeCategoryMainPageModel> fetchVideoForMainPage(String name, String categoryId, String region) {
         List<YouTubeCategoryMainPageModel> listOfCategoryVideos = new ArrayList<>();
         try {
