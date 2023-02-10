@@ -1,11 +1,26 @@
-version: '3'
+version: '3.6'
 
 services:
 
-  spring-docker3:
-    image: youtubeserviceimage
-    container_name: youtubeservice
-    ports:
-      - 8081:8081
+  youtube:
     build:
+      dockerfile: Dockerfile
       context: ./
+    container_name: youtube
+    environment:
+      eureka.instance.hostname: eureka
+      eureka.client.serviceUrl.defaultZone: http://eureka:8761/eureka
+    ports:
+      - "8081:8081"
+
+    networks:
+        - rbm
+
+networks:
+  rbm:
+    name: rbm
+    driver: bridge
+
+
+
+
